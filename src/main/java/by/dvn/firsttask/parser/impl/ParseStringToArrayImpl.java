@@ -8,26 +8,28 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class ParseStringToArrayImpl implements ParseStringToArray {
     private static final Logger log = LogManager.getLogger(CustomIntArray.class);
-    private static final String REGEX = "\\D";
-    private static final String SEPARATOR = "[\\.,!;-]";
+    private static final String REGEX = "\\s*(\\.|,|;|\t)\\s*";
 
     @Override
     public int[] parseStringToIntArray(String literal) {
 
-        List<Integer> arrList = new ArrayList<>();
+        if (literal.length() == 0) {
+            return new int[0];
+        }
 
         // Divide line by the expected numbers
-        Pattern pattern = Pattern.compile(SEPARATOR);
+        Pattern pattern = Pattern.compile(REGEX);
         String[] stringArr = pattern.split(literal);
 
-        CheckNumber checker = new CheckNumberImpl();
-
         int count = 0;
+        List<Integer> arrList = new ArrayList<>();
+        CheckNumber checker = new CheckNumberImpl();
         for (String element : stringArr) {
            if (checker.checkElement(element)) {
                 arrList.add(Integer.parseInt(element));
@@ -36,9 +38,14 @@ public class ParseStringToArrayImpl implements ParseStringToArray {
         }
 
         int[] intArray = new int[count];
-        for (int i = 0; i < count; i++) {
-            intArray[i] = arrList.get(i);
+        int i = 0;
+        for (Integer el : arrList) {
+            intArray[i++] = el;
         }
+
+        log.info(new StringBuilder().append("Create new int array { ")
+                .append(Arrays.toString(intArray))
+                .append(" }").toString());
 
         return intArray;
 

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class CheckNumberImpl implements CheckNumber {
     private static final Logger log = LogManager.getLogger(CustomIntArray.class);
-    private static final String REGEX = "\\D";
+    private static final String REGEX = "^-?\\d+$";
 
     @Override
     public boolean checkElement(String element) {
@@ -18,10 +18,10 @@ public class CheckNumberImpl implements CheckNumber {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(element);
         if (matcher.matches()) {
-            log.info("Element " + element + " not number.");
-            return false;
+            return true;
         }
-        return true;
+        log.info("Element " + element + " not number.");
+        return false;
 
     }
 }

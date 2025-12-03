@@ -14,6 +14,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         int[] tempArr = arr.getArr();
 
         if (tempArr.length == 0) {
+            log.error("Can't determine max element. Massive is empty!");
             throw new CustomArrayException("Can't determine max element. Massive is empty!");
         }
 
@@ -32,6 +33,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         int[] tempArr = arr.getArr();
 
         if (tempArr.length == 0) {
+            log.error("Can't determine min element. Massive is empty!");
             throw new CustomArrayException("Can't determine min element. Massive is empty!");
         }
 
@@ -50,6 +52,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         int[] tempArr = arr.getArr();
 
         if (tempArr.length == 0) {
+            log.error("Can't determine elements sum. Massive is empty!");
             throw new CustomArrayException("Can't determine elements sum. Massive is empty!");
         }
 
@@ -66,6 +69,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         int[] tempArr = arr.getArr();
 
         if (tempArr.length == 0) {
+            log.error("Can't sort element. Massive is empty!");
             throw new CustomArrayException("Can't sort element. Massive is empty!");
         }
 
@@ -88,6 +92,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         int[] tempArr = arr.getArr();
 
         if (tempArr.length == 0) {
+            log.error("Can't sort element. Massive is empty!");
             throw new CustomArrayException("Can't sort element. Massive is empty!");
         }
 
