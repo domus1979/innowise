@@ -54,8 +54,8 @@ public class CustomArrayServiceImpl implements CustomArrayService {
         }
 
         int result = 0;
-        for (int i = 0; i < tempArr.length; i++) {
-            result += tempArr[i];
+        for (int j : tempArr) {
+            result += j;
         }
 
         return result;

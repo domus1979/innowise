@@ -28,15 +28,6 @@ public class CustomIntArray {
         this.arr = Arrays.copyOf(arr, arr.length);
     }
 
-    private boolean checkSize(int index) {
-        if (index >= 0 && index < this.arr.length) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();

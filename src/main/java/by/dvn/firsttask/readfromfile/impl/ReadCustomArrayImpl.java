@@ -1,7 +1,6 @@
 package by.dvn.firsttask.readfromfile.impl;
 
 import by.dvn.firsttask.entity.CustomIntArray;
-import by.dvn.firsttask.exception.CustomArrayException;
 import by.dvn.firsttask.readfromfile.ReadCustomArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +17,7 @@ public class ReadCustomArrayImpl implements ReadCustomArray {
 
     @Override
     public List<String> readFileToList(String fileName) {
-        List<String> lines = new ArrayList<String>();
+        List<String> lines = new ArrayList<>();
 
         try {
            lines = Files.readAllLines(Paths.get(DIRECTORY + fileName));

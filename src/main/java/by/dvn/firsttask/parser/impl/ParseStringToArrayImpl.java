@@ -9,18 +9,17 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ParseStringToArrayImpl implements ParseStringToArray {
     private static final Logger log = LogManager.getLogger(CustomIntArray.class);
     private static final String REGEX = "\\D";
-    private static final String SEPARATOR = "[ \\.,!;-]";
+    private static final String SEPARATOR = "[\\.,!;-]";
 
     @Override
     public int[] parseStringToIntArray(String literal) {
 
-        List<Integer> arrList = new ArrayList<Integer>();
+        List<Integer> arrList = new ArrayList<>();
 
         // Divide line by the expected numbers
         Pattern pattern = Pattern.compile(SEPARATOR);

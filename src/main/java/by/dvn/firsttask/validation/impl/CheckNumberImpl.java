@@ -18,7 +18,7 @@ public class CheckNumberImpl implements CheckNumber {
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(element);
         if (matcher.matches()) {
-            log.info("Element " + String.valueOf(element) + " not number.");
+            log.info("Element " + element + " not number.");
             return false;
         }
         return true;
