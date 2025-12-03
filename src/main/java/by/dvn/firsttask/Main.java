@@ -19,7 +19,7 @@ import java.util.List;
 public class Main {
     private static final Logger log = LogManager.getLogger(CustomIntArray.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomArrayException {
 
         ReadCustomArray readArr = new ReadCustomArrayImpl();
         List<String> arraysList = readArr.readFileToList("array.txt");
