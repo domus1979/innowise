@@ -1,10 +1,13 @@
 package by.dvn.firsttask;
 
-import by.dvn.firsttask.customarray.entity.CustomIntArray;
-import by.dvn.firsttask.customarray.entity.factory.CustomIntArrayFactory;
-import by.dvn.firsttask.customarray.entity.factory.CustomIntArrayFactoryImpl;
-import by.dvn.firsttask.customarray.exception.CustomArrayException;
-import by.dvn.firsttask.customarray.servise.*;
+import by.dvn.firsttask.entity.CustomIntArray;
+import by.dvn.firsttask.entity.factory.CustomIntArrayFactory;
+import by.dvn.firsttask.entity.factory.impl.CustomIntArrayFactoryImpl;
+import by.dvn.firsttask.exception.CustomArrayException;
+import by.dvn.firsttask.parser.ParseStringToArray;
+import by.dvn.firsttask.parser.impl.ParseStringToArrayImpl;
+import by.dvn.firsttask.readfromfile.ReadCustomArray;
+import by.dvn.firsttask.readfromfile.impl.ReadCustomArrayImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,19 +20,19 @@ public class Main {
 
     public static void main(String[] args) throws CustomArrayException {
 
-        int[] primeArr = {10,1,12,7,4};
+//        int[] primeArr = {10,1,12,7,4};
+//        CustomIntArrayFactory arrayFactory = new CustomIntArrayFactoryImpl();
+//        CustomIntArray arr = arrayFactory.createArray(primeArr);
 
-        CustomIntArrayFactory arrayFactory = new CustomIntArrayFactoryImpl();
-        CustomIntArray arr = arrayFactory.createArray(primeArr);
+//        CustomArrayService serv = new CustomArrayServiceImpl();
+//        int[] tempArr = serv.bubbleSort(arr);
 
-        CustomArrayService serv = new CustomArrayServiceImpl();
-        int[] tempArr = serv.bubbleSort(arr);
-//        CustomArrayConvertation frrConv = new CustomArrayConvertationImpl();
-//        ReadCustomArray readArr = new ReadCustomArrayImpl();
-//        List<String> listForArray = readArr.readFileToList("array.txt");
-//        if (listForArray.size() != 0) {
-//            frrConv.convertStringToInt(listForArray.get(0));
-//        }
-        log.info(arr.toString());
+        ReadCustomArray readArr = new ReadCustomArrayImpl();
+        List<String> arraysList = readArr.readFileToList("array.txt");
+        ParseStringToArray parser = new ParseStringToArrayImpl();
+        for (String element : arraysList) {
+            int[] intArray = parser.parseStringToIntArray(element);
+            log.info(intArray.toString());
+        }
     }
 }
