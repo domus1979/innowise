@@ -1,4 +1,4 @@
-package by.dvn.firsttask.entity.factory;
+package by.dvn.firsttask.factory;
 
 import by.dvn.firsttask.entity.CustomIntArray;
 

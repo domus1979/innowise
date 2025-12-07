@@ -1,4 +1,4 @@
-package by.dvn.firsttask.servise;
+package by.dvn.firsttask.service;
 
 import by.dvn.firsttask.entity.CustomIntArray;
 import by.dvn.firsttask.exception.CustomArrayException;

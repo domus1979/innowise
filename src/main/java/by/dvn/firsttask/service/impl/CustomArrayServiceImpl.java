@@ -1,19 +1,19 @@
-package by.dvn.firsttask.servise.impl;
+package by.dvn.firsttask.service.impl;
 
 import by.dvn.firsttask.entity.CustomIntArray;
 import by.dvn.firsttask.exception.CustomArrayException;
-import by.dvn.firsttask.servise.CustomArrayService;
+import by.dvn.firsttask.service.CustomArrayService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CustomArrayServiceImpl implements CustomArrayService {
-    private static final Logger log = LogManager.getLogger(CustomIntArray.class);
+    private static final Logger log = LogManager.getLogger();
 
     @Override
     public int max(CustomIntArray arr) throws CustomArrayException {
         int[] tempArr = arr.getArr();
 
-        if (tempArr.length == 0) {
+        if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine max element. Massive is empty!");
             throw new CustomArrayException("Can't determine max element. Massive is empty!");
         }
@@ -32,7 +32,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
     public int min(CustomIntArray arr) throws CustomArrayException {
         int[] tempArr = arr.getArr();
 
-        if (tempArr.length == 0) {
+        if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine min element. Massive is empty!");
             throw new CustomArrayException("Can't determine min element. Massive is empty!");
         }
@@ -51,7 +51,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
     public int sum(CustomIntArray arr) throws CustomArrayException {
         int[] tempArr = arr.getArr();
 
-        if (tempArr.length == 0) {
+        if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine elements sum. Massive is empty!");
             throw new CustomArrayException("Can't determine elements sum. Massive is empty!");
         }
@@ -68,7 +68,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
     public int[] bubbleSort(CustomIntArray arr) throws CustomArrayException {
         int[] tempArr = arr.getArr();
 
-        if (tempArr.length == 0) {
+        if (tempArr == null || tempArr.length == 0) {
             log.error("Can't sort element. Massive is empty!");
             throw new CustomArrayException("Can't sort element. Massive is empty!");
         }
@@ -91,7 +91,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
     public int[] quickSort(CustomIntArray arr) throws CustomArrayException {
         int[] tempArr = arr.getArr();
 
-        if (tempArr.length == 0) {
+        if (tempArr == null || tempArr.length == 0) {
             log.error("Can't sort element. Massive is empty!");
             throw new CustomArrayException("Can't sort element. Massive is empty!");
         }
@@ -104,7 +104,6 @@ public class CustomArrayServiceImpl implements CustomArrayService {
     private void quickSortAlg(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
-
 
             quickSortAlg(arr, low, pi - 1);
             quickSortAlg(arr, pi + 1, high);

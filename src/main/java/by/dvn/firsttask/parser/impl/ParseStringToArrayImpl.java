@@ -1,9 +1,8 @@
 package by.dvn.firsttask.parser.impl;
 
-import by.dvn.firsttask.entity.CustomIntArray;
 import by.dvn.firsttask.parser.ParseStringToArray;
-import by.dvn.firsttask.validation.CheckNumber;
-import by.dvn.firsttask.validation.impl.CheckNumberImpl;
+import by.dvn.firsttask.validator.CheckNumber;
+import by.dvn.firsttask.validator.impl.CheckNumberImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,18 +12,18 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class ParseStringToArrayImpl implements ParseStringToArray {
-    private static final Logger log = LogManager.getLogger(CustomIntArray.class);
-    private static final String REGEX = "\\s*(\\.|,|;|\t)\\s*";
+    private static final Logger log = LogManager.getLogger();
+    private static final String TEMPLATE_REGEX = "\\s*(\\.|,|;|\t)\\s*";
 
     @Override
     public int[] parseStringToIntArray(String literal) {
 
-        if (literal.length() == 0) {
+        if (literal == null || literal.isEmpty()) {
             return new int[0];
         }
 
         // Divide line by the expected numbers
-        Pattern pattern = Pattern.compile(REGEX);
+        Pattern pattern = Pattern.compile(TEMPLATE_REGEX);
         String[] stringArr = pattern.split(literal);
 
         int count = 0;
@@ -33,8 +32,11 @@ public class ParseStringToArrayImpl implements ParseStringToArray {
         for (String element : stringArr) {
            if (checker.checkElement(element)) {
                 arrList.add(Integer.parseInt(element));
-            }
-            count++;
+           }
+           else {
+               log.info("Element " + element + " not number.");
+           }
+           count++;
         }
 
         int[] intArray = new int[count];
@@ -43,9 +45,9 @@ public class ParseStringToArrayImpl implements ParseStringToArray {
             intArray[i++] = el;
         }
 
-        log.info(new StringBuilder().append("Create new int array { ")
-                .append(Arrays.toString(intArray))
-                .append(" }").toString());
+        log.info("Create new int array { " +
+                Arrays.toString(intArray) +
+                " }");
 
         return intArray;
 

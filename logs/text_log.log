@@ -1,10 +1,9 @@
-11:39:26.351 [main] DEBUG dvn.firsttask.customarray.entity.CustomIntArray - CustomIntArray: {0; 1; 2; 3; 4}
-11:40:06.189 [main] INFO  dvn.firsttask.customarray.entity.CustomIntArray - CustomIntArray: {0; 1; 2; 3; 4}
-12:26:46.497 [main] INFO  dvn.firsttask.customarray.entity.CustomIntArray - CustomIntArray: {1; 4; 7; 10; 12}
-12:27:07.139 [main] INFO  dvn.firsttask.customarray.entity.CustomIntArray - CustomIntArray: {1; 4; 7; 10; 12}
-20:10:43.343 [main] ERROR dvn.firsttask.customarray.entity.CustomIntArray - \dataarray example.txt
-20:11:46.441 [main] ERROR dvn.firsttask.customarray.entity.CustomIntArray - \dataarray example.txt
-20:16:34.986 [main] ERROR dvn.firsttask.customarray.entity.CustomIntArray - \data\array example.txt
-20:18:32.998 [main] ERROR dvn.firsttask.customarray.entity.CustomIntArray - \data\array.txt
-20:23:20.064 [main] ERROR dvn.firsttask.customarray.entity.CustomIntArray - \data\array.txt
-20:25:45.033 [main] INFO  dvn.firsttask.customarray.entity.CustomIntArray - CustomIntArray: {1; 4; 7; 10; 12}
+20:19:47.330 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new object: CustomIntArray: {1; 12; 14; 21}
+20:19:47.335 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new int array { [22, 3, 11, -14] }
+20:19:47.335 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new object: CustomIntArray: {22; 3; 11; -14}
+20:19:47.335 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Element 2f not number.
+20:19:47.336 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new int array { [3, 4, 0] }
+20:19:47.336 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new object: CustomIntArray: {3; 4; 0}
+20:19:47.337 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new int array { [22, -43] }
+20:19:47.337 [main] INFO  by.dvn.firsttask.entity.CustomIntArray - Create new object: CustomIntArray: {22; -43}
+14:03:48.754 [main] ERROR by.dvn.firsttask.entity.CustomIntArray - The array size cannot be less than or equal to 0

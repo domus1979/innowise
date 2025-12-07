@@ -1,7 +1,7 @@
-package by.dvn.firsttask.entity.factory.impl;
+package by.dvn.firsttask.factory.impl;
 
 import by.dvn.firsttask.entity.CustomIntArray;
-import by.dvn.firsttask.entity.factory.CustomIntArrayFactory;
+import by.dvn.firsttask.factory.CustomIntArrayFactory;
 
 public class CustomIntArrayFactoryImpl implements CustomIntArrayFactory {
     @Override

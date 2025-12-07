@@ -1,6 +1,6 @@
-package by.dvn.firsttask.validation.impl;
+package by.dvn.firsttask.validator.impl;
 
-import by.dvn.firsttask.validation.CheckArray;
+import by.dvn.firsttask.validator.CheckArray;
 
 public class CheckArrayImpl implements CheckArray {
 

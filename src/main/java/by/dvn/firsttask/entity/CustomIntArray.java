@@ -1,19 +1,31 @@
 package by.dvn.firsttask.entity;
 
+import by.dvn.firsttask.exception.CustomArrayException;
+import by.dvn.firsttask.validator.CheckArray;
+import by.dvn.firsttask.validator.impl.CheckArrayImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public class CustomIntArray {
-    private static final Logger log = LogManager.getLogger(CustomIntArray.class);
+    private static final Logger log = LogManager.getLogger();
     private int[] arr;
 
     public CustomIntArray() {
     }
 
     public CustomIntArray(int size) {
-        this.arr = new int[size];
+        CheckArray checkArray = new CheckArrayImpl();
+        if (checkArray.checkArraySize(size)) {
+            this.arr = new int[size];
+        }
+        else {
+            this.arr = new int[0];
+            log.error("The array size cannot be less than or equal to 0");
+//            throw new CustomArrayException("The array size cannot be less than or equal to 0");
+        }
     }
 
     public CustomIntArray(int[] arr) {
@@ -26,6 +38,18 @@ public class CustomIntArray {
 
     public void setArr(int[] arr) {
         this.arr = Arrays.copyOf(arr, arr.length);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomIntArray that = (CustomIntArray) o;
+        return Arrays.equals(arr, that.arr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(arr);
     }
 
     @Override
