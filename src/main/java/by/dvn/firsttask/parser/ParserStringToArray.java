@@ -1,5 +1,5 @@
 package by.dvn.firsttask.parser;
 
-public interface ParseStringToArray {
+public interface ParserStringToArray {
     int[] parseStringToIntArray(String literal);
 }

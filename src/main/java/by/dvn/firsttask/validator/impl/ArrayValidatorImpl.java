@@ -1,8 +1,8 @@
 package by.dvn.firsttask.validator.impl;
 
-import by.dvn.firsttask.validator.CheckArray;
+import by.dvn.firsttask.validator.ArrayValidator;
 
-public class CheckArrayImpl implements CheckArray {
+public class ArrayValidatorImpl implements ArrayValidator {
 
     @Override
     public boolean checkArraySize(int size) {

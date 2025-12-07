@@ -1,5 +1,5 @@
 package by.dvn.firsttask.validator;
 
-public interface CheckNumber {
+public interface NumberValidator {
     boolean checkElement(String element);
 }

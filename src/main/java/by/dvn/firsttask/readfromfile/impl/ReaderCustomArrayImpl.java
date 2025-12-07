@@ -1,7 +1,7 @@
 package by.dvn.firsttask.readfromfile.impl;
 
 import by.dvn.firsttask.exception.CustomArrayException;
-import by.dvn.firsttask.readfromfile.ReadCustomArray;
+import by.dvn.firsttask.readfromfile.ReaderCustomArray;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ReadCustomArrayImpl implements ReadCustomArray {
+public class ReaderCustomArrayImpl implements ReaderCustomArray {
     private static final Logger log = LogManager.getLogger();
     private static final String DIRECTORY = "data/";
 
@@ -19,10 +19,7 @@ public class ReadCustomArrayImpl implements ReadCustomArray {
     public List<String> readFileToList(String fileName) throws CustomArrayException {
         List<String> lines;
 
-        if (fileName == null || fileName.isBlank()){
-            throw new CustomArrayException("File name is empty.");
-        }
-        if (Files.notExists(Path.of(DIRECTORY + fileName))) {
+        if (fileName == null || fileName.isBlank() || Files.notExists(Path.of(DIRECTORY + fileName))) {
             throw new CustomArrayException("File " + DIRECTORY + fileName + " not exist.");
         }
 

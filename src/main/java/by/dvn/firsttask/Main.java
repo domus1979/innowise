@@ -4,12 +4,12 @@ import by.dvn.firsttask.entity.CustomIntArray;
 import by.dvn.firsttask.factory.CustomIntArrayFactory;
 import by.dvn.firsttask.factory.impl.CustomIntArrayFactoryImpl;
 import by.dvn.firsttask.exception.CustomArrayException;
-import by.dvn.firsttask.parser.ParseStringToArray;
-import by.dvn.firsttask.parser.impl.ParseStringToArrayImpl;
-import by.dvn.firsttask.readfromfile.ReadCustomArray;
-import by.dvn.firsttask.readfromfile.impl.ReadCustomArrayImpl;
-import by.dvn.firsttask.validator.CheckArray;
-import by.dvn.firsttask.validator.impl.CheckArrayImpl;
+import by.dvn.firsttask.parser.ParserStringToArray;
+import by.dvn.firsttask.parser.impl.ParserStringToArrayImpl;
+import by.dvn.firsttask.readfromfile.ReaderCustomArray;
+import by.dvn.firsttask.readfromfile.impl.ReaderCustomArrayImpl;
+import by.dvn.firsttask.validator.ArrayValidator;
+import by.dvn.firsttask.validator.impl.ArrayValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,10 +21,10 @@ public class Main {
 
     public static void main(String[] args) throws CustomArrayException {
 
-        ReadCustomArray readArr = new ReadCustomArrayImpl();
+        ReaderCustomArray readArr = new ReaderCustomArrayImpl();
         List<String> arraysList = readArr.readFileToList(FILE_NAME);
-        ParseStringToArray parser = new ParseStringToArrayImpl();
-        CheckArray chekArray = new CheckArrayImpl();
+        ParserStringToArray parser = new ParserStringToArrayImpl();
+        ArrayValidator chekArray = new ArrayValidatorImpl();
         for (String element : arraysList) {
             int[] intArray = parser.parseStringToIntArray(element);
 

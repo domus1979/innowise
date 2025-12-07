@@ -1,8 +1,8 @@
 package by.dvn.firsttask.parser.impl;
 
-import by.dvn.firsttask.parser.ParseStringToArray;
-import by.dvn.firsttask.validator.CheckNumber;
-import by.dvn.firsttask.validator.impl.CheckNumberImpl;
+import by.dvn.firsttask.parser.ParserStringToArray;
+import by.dvn.firsttask.validator.NumberValidator;
+import by.dvn.firsttask.validator.impl.NumberValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class ParseStringToArrayImpl implements ParseStringToArray {
+public class ParserStringToArrayImpl implements ParserStringToArray {
     private static final Logger log = LogManager.getLogger();
     private static final String TEMPLATE_REGEX = "\\s*(\\.|,|;|\t)\\s*";
 
@@ -28,7 +28,7 @@ public class ParseStringToArrayImpl implements ParseStringToArray {
 
         int count = 0;
         List<Integer> arrList = new ArrayList<>();
-        CheckNumber checker = new CheckNumberImpl();
+        NumberValidator checker = new NumberValidatorImpl();
         for (String element : stringArr) {
            if (checker.checkElement(element)) {
                 arrList.add(Integer.parseInt(element));

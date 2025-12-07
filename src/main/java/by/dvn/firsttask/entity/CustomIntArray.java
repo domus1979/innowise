@@ -1,13 +1,11 @@
 package by.dvn.firsttask.entity;
 
-import by.dvn.firsttask.exception.CustomArrayException;
-import by.dvn.firsttask.validator.CheckArray;
-import by.dvn.firsttask.validator.impl.CheckArrayImpl;
+import by.dvn.firsttask.validator.ArrayValidator;
+import by.dvn.firsttask.validator.impl.ArrayValidatorImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 public class CustomIntArray {
     private static final Logger log = LogManager.getLogger();
@@ -17,8 +15,8 @@ public class CustomIntArray {
     }
 
     public CustomIntArray(int size) {
-        CheckArray checkArray = new CheckArrayImpl();
-        if (checkArray.checkArraySize(size)) {
+        ArrayValidator arrayValidator = new ArrayValidatorImpl();
+        if (arrayValidator.checkArraySize(size)) {
             this.arr = new int[size];
         }
         else {

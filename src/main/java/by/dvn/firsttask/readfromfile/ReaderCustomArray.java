@@ -4,6 +4,6 @@ import by.dvn.firsttask.exception.CustomArrayException;
 
 import java.util.List;
 
-public interface ReadCustomArray {
+public interface ReaderCustomArray {
     List<String> readFileToList(String fileName) throws CustomArrayException;
 }
