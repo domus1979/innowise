@@ -37,7 +37,7 @@ class CustomIntArrayTest {
     }
 
     @Test
-    public void testConstructorWithArray() {
+    public void testConstructorWithArray() throws CustomArrayException {
         int[] originalArray = {1, 2, 3, 4, 5};
         customArray = new CustomIntArray(originalArray);
 
@@ -47,7 +47,7 @@ class CustomIntArrayTest {
     }
 
     @Test
-    void getArr() {
+    void getArr() throws CustomArrayException {
         int[] testArray = {10, 20, 30};
         customArray = new CustomIntArray(testArray);
 

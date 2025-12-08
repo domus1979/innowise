@@ -24,7 +24,7 @@ public class CustomIntArrayObserverImpl implements CustomIntArrayObserver {
 
         CustomIntArrayData customIntArrayData = new CustomIntArrayData(max, min, sum);
         warehouseCustomIntArray.putData(customIntArray.getId(), customIntArrayData);
-        log.debug("Data " + customIntArrayData.toString() + " put in warehouse: " + warehouseCustomIntArray.toString());
+        log.debug("Data " + customIntArrayData + " put in warehouse: " + warehouseCustomIntArray);
 
     }
 }

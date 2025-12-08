@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class CustomIntArray implements CustomIntArrayObserver {
     private static final Logger log = LogManager.getLogger();
     private static long id = 0;
-    private static CustomIntArrayObserver customIntArrayObserver = new CustomIntArrayObserverImpl();
+    private static CustomIntArrayObserver customIntArrayObserver;
     private int[] array;
 
     public CustomIntArray() {
@@ -22,9 +22,20 @@ public class CustomIntArray implements CustomIntArrayObserver {
         this.array = new int[size];
     }
 
-    public CustomIntArray(int[] array) {
+    public CustomIntArray(int[] array) throws CustomArrayException {
         ++id;
         this.array = Arrays.copyOf(array, array.length);
+        updateWarehouseData(this);
+    }
+
+    public static void addCustomIntArrayObserver(CustomIntArrayObserver customIntArrayObserver) {
+        if (customIntArrayObserver != null) {
+            CustomIntArray.customIntArrayObserver = customIntArrayObserver;
+        }
+    }
+
+    public static void removeCustomIntArrayObserver() {
+        customIntArrayObserver = null;
     }
 
     public long getId() {
@@ -40,19 +51,12 @@ public class CustomIntArray implements CustomIntArrayObserver {
         updateWarehouseData(this);
     }
 
-    public void addCustomIntArrayObserver(CustomIntArrayObserver customIntArrayObserver) {
-        if (customIntArrayObserver != null) {
-            this.customIntArrayObserver = customIntArrayObserver;
-        }
-    }
-
-    public void removeCustomIntArrayObserver() {
-        this.customIntArrayObserver = null;
-    }
-
     @Override
     public void updateWarehouseData(CustomIntArray customIntArray) throws CustomArrayException {
-        customIntArrayObserver.updateWarehouseData(customIntArray);
+        if (customIntArrayObserver != null) {
+            customIntArrayObserver.updateWarehouseData(customIntArray);
+            log.debug("For CustomIntArray with id: " + id + " put data to warehouse.");
+        }
     }
 
     @Override

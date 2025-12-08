@@ -1,1 +1,1 @@
-19:41:51.343 [main] DEBUG dvn.firsttask.observer.impl.CustomIntArrayObserverImpl - Data CustomIntArrayData{max=15, min=5, sum=30} put in warehouse: WarehouseCustomIntArray{map={2=CustomIntArrayData{max=15, min=5, sum=30}}}
+20:02:19.891 [main] DEBUG by.dvn.firsttask.entity.CustomIntArray - For CustomIntArray with id: 9 put data to warehouse.

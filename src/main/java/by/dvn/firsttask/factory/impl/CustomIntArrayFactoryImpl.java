@@ -1,6 +1,7 @@
 package by.dvn.firsttask.factory.impl;
 
 import by.dvn.firsttask.entity.CustomIntArray;
+import by.dvn.firsttask.exception.CustomArrayException;
 import by.dvn.firsttask.factory.CustomIntArrayFactory;
 
 public class CustomIntArrayFactoryImpl implements CustomIntArrayFactory {
@@ -15,7 +16,7 @@ public class CustomIntArrayFactoryImpl implements CustomIntArrayFactory {
     }
 
     @Override
-    public CustomIntArray createArray(int[] array) {
+    public CustomIntArray createArray(int[] array) throws CustomArrayException {
         return new CustomIntArray(array);
     }
 }
