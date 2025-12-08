@@ -17,20 +17,20 @@ class CustomIntArrayTest {
     @Test
     public void testDefaultConstructor() {
         customArray = new CustomIntArray();
-        assertNull(customArray.getArr(), "Default constructor should create null array");
+        assertNull(customArray.getArray(), "Default constructor should create null array");
     }
 
     @Test
-    public void testConstructorWithSize() {
+    public void testConstructorWithSize(){
         int size = 5;
         customArray = new CustomIntArray(size);
 
-        assertNotNull(customArray.getArr(), "Array should not be null");
-        assertEquals(size, customArray.getArr().length, "Array length should match size parameter");
+        assertNotNull(customArray.getArray(), "Array should not be null");
+        assertEquals(size, customArray.getArray().length, "Array length should match size parameter");
 
         // Verify all elements are initialized to 0
         for (int i = 0; i < size; i++) {
-            assertEquals(0, customArray.getArr()[i], "Elements should be initialized to 0");
+            assertEquals(0, customArray.getArray()[i], "Elements should be initialized to 0");
         }
     }
 
@@ -39,9 +39,9 @@ class CustomIntArrayTest {
         int[] originalArray = {1, 2, 3, 4, 5};
         customArray = new CustomIntArray(originalArray);
 
-        assertNotNull(customArray.getArr(), "Array should not be null");
-        assertArrayEquals(originalArray, customArray.getArr(), "Arrays should be equal");
-        assertNotSame(originalArray, customArray.getArr(), "Array should be a copy, not the same reference");
+        assertNotNull(customArray.getArray(), "Array should not be null");
+        assertArrayEquals(originalArray, customArray.getArray(), "Arrays should be equal");
+        assertNotSame(originalArray, customArray.getArray(), "Array should be a copy, not the same reference");
     }
 
     @Test
@@ -49,7 +49,7 @@ class CustomIntArrayTest {
         int[] testArray = {10, 20, 30};
         customArray = new CustomIntArray(testArray);
 
-        int[] result = customArray.getArr();
+        int[] result = customArray.getArray();
         assertArrayEquals(testArray, result, "getArr should return array with same values");
     }
 
@@ -58,9 +58,9 @@ class CustomIntArrayTest {
         customArray = new CustomIntArray(3);
         int[] newArray = {5, 10, 15};
 
-        customArray.setArr(newArray);
+        customArray.setArray(newArray);
 
-        assertArrayEquals(newArray, customArray.getArr(), "setArr should update the array");
-        assertNotSame(newArray, customArray.getArr(), "setArr should create a copy");
+        assertArrayEquals(newArray, customArray.getArray(), "setArr should update the array");
+        assertNotSame(newArray, customArray.getArray(), "setArr should create a copy");
     }
 }

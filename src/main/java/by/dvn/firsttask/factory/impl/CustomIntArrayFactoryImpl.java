@@ -15,7 +15,7 @@ public class CustomIntArrayFactoryImpl implements CustomIntArrayFactory {
     }
 
     @Override
-    public CustomIntArray createArray(int[] arr) {
-        return new CustomIntArray(arr);
+    public CustomIntArray createArray(int[] array) {
+        return new CustomIntArray(array);
     }
 }

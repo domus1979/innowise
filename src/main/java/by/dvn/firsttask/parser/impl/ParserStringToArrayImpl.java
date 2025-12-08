@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class ParserStringToArrayImpl implements ParserStringToArray {
     private static final Logger log = LogManager.getLogger();
-    private static final String TEMPLATE_REGEX = "\\s*(\\.|,|;|\t)\\s*";
+    private static final String DELIMETED_STRING_REGEX = "\\s*(\\.|,|;|\t)\\s*";
 
     @Override
     public int[] parseStringToIntArray(String literal) {
@@ -23,7 +23,7 @@ public class ParserStringToArrayImpl implements ParserStringToArray {
         }
 
         // Divide line by the expected numbers
-        Pattern pattern = Pattern.compile(TEMPLATE_REGEX);
+        Pattern pattern = Pattern.compile(DELIMETED_STRING_REGEX);
         String[] stringArr = pattern.split(literal);
 
         int count = 0;
@@ -41,8 +41,8 @@ public class ParserStringToArrayImpl implements ParserStringToArray {
 
         int[] intArray = new int[count];
         int i = 0;
-        for (Integer el : arrList) {
-            intArray[i++] = el;
+        for (int element : arrList) {
+            intArray[i++] = element;
         }
 
         log.info("Create new int array { " +

@@ -1,68 +1,86 @@
 package by.dvn.firsttask.entity;
 
-import by.dvn.firsttask.validator.ArrayValidator;
-import by.dvn.firsttask.validator.impl.ArrayValidatorImpl;
+import by.dvn.firsttask.exception.CustomArrayException;
+import by.dvn.firsttask.observer.CustomIntArrayObserver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-public class CustomIntArray {
+public class CustomIntArray implements CustomIntArrayObserver {
     private static final Logger log = LogManager.getLogger();
-    private int[] arr;
+    private static long id = 0;
+    private CustomIntArrayObserver customIntArrayObserver;
+    private int[] array;
 
     public CustomIntArray() {
     }
 
     public CustomIntArray(int size) {
-        ArrayValidator arrayValidator = new ArrayValidatorImpl();
-        if (arrayValidator.checkArraySize(size)) {
-            this.arr = new int[size];
+        ++id;
+        this.array = new int[size];
+    }
+
+    public CustomIntArray(int[] array) {
+        ++id;
+        this.array = Arrays.copyOf(array, array.length);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public int[] getArray() {
+        return array;
+    }
+
+    public void setArray(int[] array) throws CustomArrayException {
+        this.array = Arrays.copyOf(array, array.length);
+        updateWarehouseData(this);
+    }
+
+    public void addCustomIntArrayObserver(CustomIntArrayObserver customIntArrayObserver) {
+        if (customIntArrayObserver != null) {
+            this.customIntArrayObserver = customIntArrayObserver;
         }
-        else {
-            this.arr = new int[0];
-            log.error("The array size cannot be less than or equal to 0");
-//            throw new CustomArrayException("The array size cannot be less than or equal to 0");
-        }
     }
 
-    public CustomIntArray(int[] arr) {
-        this.arr = Arrays.copyOf(arr, arr.length);
+    public void removeCustomIntArrayObserver() {
+        this.customIntArrayObserver = null;
     }
 
-    public int[] getArr() {
-        return arr;
-    }
-
-    public void setArr(int[] arr) {
-        this.arr = Arrays.copyOf(arr, arr.length);
+    @Override
+    public void updateWarehouseData(CustomIntArray customIntArray) throws CustomArrayException {
+        customIntArrayObserver.updateWarehouseData(customIntArray);
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CustomIntArray that = (CustomIntArray) o;
-        return Arrays.equals(arr, that.arr);
+        return Arrays.equals(array, that.array);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(arr);
+        return Arrays.hashCode(array);
     }
 
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();
         text.append("CustomIntArray: {");
-        for (int i = 0; i < this.arr.length; i++) {
+        for (int i = 0; i < this.array.length; i++) {
             if (i == 0) {
-                text.append(arr[i]);
+                text.append(array[i]);
             }
             else {
-                text.append("; ").append(arr[i]);
+                text.append("; ").append(array[i]);
             }
         }
         text.append("}");
         return String.valueOf(text);
     }
+
+
 }

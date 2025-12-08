@@ -11,7 +11,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
 
     @Override
     public int max(CustomIntArray arr) throws CustomArrayException {
-        int[] tempArr = arr.getArr();
+        int[] tempArr = arr.getArray();
 
         if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine max element. Massive is empty!");
@@ -30,7 +30,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
 
     @Override
     public int min(CustomIntArray arr) throws CustomArrayException {
-        int[] tempArr = arr.getArr();
+        int[] tempArr = arr.getArray();
 
         if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine min element. Massive is empty!");
@@ -49,7 +49,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
 
     @Override
     public int sum(CustomIntArray arr) throws CustomArrayException {
-        int[] tempArr = arr.getArr();
+        int[] tempArr = arr.getArray();
 
         if (tempArr == null || tempArr.length == 0) {
             log.error("Can't determine elements sum. Massive is empty!");
@@ -66,7 +66,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
 
     @Override
     public int[] bubbleSort(CustomIntArray arr) throws CustomArrayException {
-        int[] tempArr = arr.getArr();
+        int[] tempArr = arr.getArray();
 
         if (tempArr == null || tempArr.length == 0) {
             log.error("Can't sort element. Massive is empty!");
@@ -89,7 +89,7 @@ public class CustomArrayServiceImpl implements CustomArrayService {
 
     @Override
     public int[] quickSort(CustomIntArray arr) throws CustomArrayException {
-        int[] tempArr = arr.getArr();
+        int[] tempArr = arr.getArray();
 
         if (tempArr == null || tempArr.length == 0) {
             log.error("Can't sort element. Massive is empty!");

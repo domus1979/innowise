@@ -12,10 +12,10 @@ public class NumberValidatorImpl implements NumberValidator {
     private static final String NUMBER_REGEX = "^-?\\d+$";
 
     @Override
-    public boolean checkElement(String element) {
+    public boolean checkElement(String numberString) {
 
         Pattern pattern = Pattern.compile(NUMBER_REGEX);
-        Matcher matcher = pattern.matcher(element);
+        Matcher matcher = pattern.matcher(numberString);
         return matcher.matches();
 
     }
