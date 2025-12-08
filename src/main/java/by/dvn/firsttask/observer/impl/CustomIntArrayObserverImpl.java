@@ -18,9 +18,9 @@ public class CustomIntArrayObserverImpl implements CustomIntArrayObserver {
         WarehouseCustomIntArray warehouseCustomIntArray = WarehouseCustomIntArray.getInstance();
         CustomArrayService customArrayService = new CustomArrayServiceImpl();
 
-        int max =  customArrayService.max(customIntArray);
-        int min =  customArrayService.min(customIntArray);
-        int sum =  customArrayService.sum(customIntArray);
+        int max = customArrayService.max(customIntArray);
+        int min = customArrayService.min(customIntArray);
+        int sum = customArrayService.sum(customIntArray);
 
         CustomIntArrayData customIntArrayData = new CustomIntArrayData(max, min, sum);
         warehouseCustomIntArray.putData(customIntArray.getId(), customIntArrayData);

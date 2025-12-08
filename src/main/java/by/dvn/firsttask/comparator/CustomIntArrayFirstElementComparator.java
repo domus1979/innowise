@@ -14,8 +14,7 @@ public class CustomIntArrayFirstElementComparator implements Comparator<CustomIn
         int result;
         if (o1.getArray().length > 0 && o2.getArray().length > 0) {
             result = o1.getArray()[0] - o2.getArray()[0];
-        }
-        else {
+        } else {
             log.error("Can`t sort arrays with zero length!");
             result = 0;
         }

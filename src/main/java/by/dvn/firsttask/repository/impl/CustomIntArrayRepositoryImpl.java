@@ -23,8 +23,7 @@ public class CustomIntArrayRepositoryImpl implements CustomIntArrayRepository {
         int index = itemList.indexOf(customIntArray);
         if (index >= 0) {
             itemList.set(index, customIntArray);
-        }
-        else {
+        } else {
             itemList.add(customIntArray);
         }
 
@@ -44,7 +43,8 @@ public class CustomIntArrayRepositoryImpl implements CustomIntArrayRepository {
 
     @Override
     public List<CustomIntArray> sort(Comparator<CustomIntArray> comparator) {
-        itemList.sort(comparator);
-        return itemList;
+        List<CustomIntArray> list = new ArrayList<>(List.copyOf(itemList));
+        list.sort(comparator);
+        return list;
     }
 }

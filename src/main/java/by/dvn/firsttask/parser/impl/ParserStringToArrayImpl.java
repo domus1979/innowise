@@ -30,13 +30,12 @@ public class ParserStringToArrayImpl implements ParserStringToArray {
         List<Integer> arrList = new ArrayList<>();
         NumberValidator checker = new NumberValidatorImpl();
         for (String element : stringArr) {
-           if (checker.checkElement(element)) {
+            if (checker.checkElement(element)) {
                 arrList.add(Integer.parseInt(element));
-           }
-           else {
-               log.info("Element " + element + " not number.");
-           }
-           count++;
+            } else {
+                log.info("Element " + element + " not number.");
+            }
+            count++;
         }
 
         int[] intArray = new int[count];

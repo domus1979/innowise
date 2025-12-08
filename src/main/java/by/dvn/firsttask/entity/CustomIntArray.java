@@ -78,8 +78,7 @@ public class CustomIntArray implements CustomIntArrayObserver {
         for (int i = 0; i < this.array.length; i++) {
             if (i == 0) {
                 text.append(array[i]);
-            }
-            else {
+            } else {
                 text.append("; ").append(array[i]);
             }
         }
