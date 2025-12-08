@@ -1,5 +1,6 @@
 package by.dvn.firsttask.entity;
 
+import by.dvn.firsttask.exception.CustomArrayException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomIntArrayTest {
 
     private CustomIntArray customArray;
+
 
     @BeforeEach
     public void setUp() {
@@ -54,7 +56,7 @@ class CustomIntArrayTest {
     }
 
     @Test
-    void setArr() {
+    void setArr() throws CustomArrayException {
         customArray = new CustomIntArray(3);
         int[] newArray = {5, 10, 15};
 

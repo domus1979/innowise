@@ -1,9 +1,1 @@
-16:13:58.517 [main] INFO  dvn.firsttask.parser.impl.ParserStringToArrayImpl - Create new int array { [1, 12, 14, 21] }
-16:13:58.526 [main] INFO  by.dvn.firsttask.Main - Create new object: CustomIntArray: {1; 12; 14; 21}
-16:13:58.528 [main] INFO  dvn.firsttask.parser.impl.ParserStringToArrayImpl - Create new int array { [22, 3, 11, -14] }
-16:13:58.528 [main] INFO  by.dvn.firsttask.Main - Create new object: CustomIntArray: {22; 3; 11; -14}
-16:13:58.528 [main] INFO  dvn.firsttask.parser.impl.ParserStringToArrayImpl - Element 2f not number.
-16:13:58.528 [main] INFO  dvn.firsttask.parser.impl.ParserStringToArrayImpl - Create new int array { [3, 4, 0] }
-16:13:58.528 [main] INFO  by.dvn.firsttask.Main - Create new object: CustomIntArray: {3; 4; 0}
-16:13:58.528 [main] INFO  dvn.firsttask.parser.impl.ParserStringToArrayImpl - Create new int array { [22, -43] }
-16:13:58.528 [main] INFO  by.dvn.firsttask.Main - Create new object: CustomIntArray: {22; -43}
+19:41:51.343 [main] DEBUG dvn.firsttask.observer.impl.CustomIntArrayObserverImpl - Data CustomIntArrayData{max=15, min=5, sum=30} put in warehouse: WarehouseCustomIntArray{map={2=CustomIntArrayData{max=15, min=5, sum=30}}}

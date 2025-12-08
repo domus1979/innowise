@@ -2,6 +2,7 @@ package by.dvn.firsttask.entity;
 
 import by.dvn.firsttask.exception.CustomArrayException;
 import by.dvn.firsttask.observer.CustomIntArrayObserver;
+import by.dvn.firsttask.observer.impl.CustomIntArrayObserverImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,7 +11,7 @@ import java.util.Arrays;
 public class CustomIntArray implements CustomIntArrayObserver {
     private static final Logger log = LogManager.getLogger();
     private static long id = 0;
-    private CustomIntArrayObserver customIntArrayObserver;
+    private static CustomIntArrayObserver customIntArrayObserver = new CustomIntArrayObserverImpl();
     private int[] array;
 
     public CustomIntArray() {
