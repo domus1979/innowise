@@ -2,6 +2,7 @@ package by.dvn.firsttask.repository.impl;
 
 import by.dvn.firsttask.entity.CustomIntArray;
 import by.dvn.firsttask.repository.CustomIntArrayRepository;
+import by.dvn.firsttask.specification.CustomIntArraySpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,8 +38,15 @@ public class CustomIntArrayRepositoryImpl implements CustomIntArrayRepository {
     }
 
     @Override
-    public List<CustomIntArray> find() {
-        return List.of();
+    public List<CustomIntArray> find(CustomIntArraySpecification specification) {
+        List<CustomIntArray> list = new ArrayList<>();
+
+        for (CustomIntArray element : this.itemList) {
+            if (specification.isCorrect(element)) {
+                list.add(element);
+            }
+        }
+        return list;
     }
 
     @Override

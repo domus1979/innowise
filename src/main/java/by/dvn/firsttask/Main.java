@@ -12,6 +12,7 @@ import by.dvn.firsttask.readfromfile.ReaderCustomArray;
 import by.dvn.firsttask.readfromfile.impl.ReaderCustomArrayImpl;
 import by.dvn.firsttask.repository.CustomIntArrayRepository;
 import by.dvn.firsttask.repository.impl.CustomIntArrayRepositoryImpl;
+import by.dvn.firsttask.specification.impl.CustomIntArrayIdSpecification;
 import by.dvn.firsttask.validator.ArrayValidator;
 import by.dvn.firsttask.validator.impl.ArrayValidatorImpl;
 import org.apache.logging.log4j.LogManager;
@@ -45,5 +46,13 @@ public class Main {
                 repository.save(createdEntity);
             }
         }
+
+        List<CustomIntArray> foundElement =  repository.find(new CustomIntArrayIdSpecification(2));
+        StringBuilder text = new StringBuilder();
+        for (CustomIntArray array : foundElement) {
+            text.append(array.toString());
+        }
+        log.debug("Fond in repository next item with id = 2: " + text);
+
     }
 }

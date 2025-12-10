@@ -1,1 +1,2 @@
-20:02:19.891 [main] DEBUG by.dvn.firsttask.entity.CustomIntArray - For CustomIntArray with id: 9 put data to warehouse.
+21:36:42.606 [main] DEBUG by.dvn.firsttask.entity.CustomIntArray - For CustomIntArray with id: 9 put data to warehouse.
+21:36:42.609 [main] DEBUG by.dvn.firsttask.Main - Fond in repository next item with id = 2: CustomIntArray: {22; 3; 11; -14}
